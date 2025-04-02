@@ -1,0 +1,176 @@
+/* It seems like there was no clear request. Here's a basic CSS template to get started: */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+/*
+ .index {
+    background-image: url("C.Gráfico/Background\ \(1\).svg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+ **/
+
+body { 
+    background-image: url("C.Gráfico/Background\ \(1\).svg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    display: flex;
+    border-radius: 5px;
+    background-color: black;
+}
+
+form label {
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+}
+form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    transition: .3s ease;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #555;
+    cursor: pointer;
+}
+@media (min-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 15px;
+    }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+/* Barra de navegación común */
+.navegacion {
+    display: flex;
+    justify-content: space-between; /* Para que el logo esté a la izquierda */
+    align-items: center;
+    background-color: black; /* Fondo negro */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 20px; /* Barra más delgada */
+    z-index: 1000; /* Para asegurarnos de que esté encima de otros elementos */
+}
+
+/* Centrar el logo a la izquierda en la barra */
+.navegacion .logo {
+    position: absolute;
+    left: -300px; /* Ajusta el valor según el espacio deseado desde la izquierda */
+    top: 50%;
+    transform: translateY(-50%); /* Centra el logo verticalmente */
+}
+
+.navegacion .logo img {
+    height: 500px; /* Ajusta el tamaño del logo según lo necesites */
+}
+
+
+/* Barra de navegación */
+.navegacion .menu {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    width: 100%; /* Ocupa todo el ancho de la barra */
+}
+
+.navegacion .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Los elementos estarán en una fila horizontal */
+    justify-content: center; /* Centra los elementos en la barra */
+}
+
+.navegacion .menu ul li {
+    margin-right: 20px; /* Espacio entre los elementos */
+}
+
+.navegacion .menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: white; /* Texto blanco */
+    font-size: 18px;
+    padding: 10px 20px; /* Espaciado dentro de los recuadros */
+    border-radius: 12px; /* Bordes redondeados */
+    background-color: black; /* Fondo negro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: all 0.3s ease; /* Transición suave para efectos de hover */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de parallax en los enlaces */
+.navegacion .menu ul li a:hover {
+    background-color: #007BFF; /* Fondo azul al pasar el ratón */
+    color: white; /* Texto blanco */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+    transform: translateY(-2px); /* Efecto de elevar el recuadro */
+}
+
+/* Efecto parallax de desplazamiento */
+.navegacion .menu ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.navegacion .menu ul li a:hover::before {
+    transform: translateX(0); /* El elemento se mueve de izquierda a derecha */
+}
+
+@keyframes parallax {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
