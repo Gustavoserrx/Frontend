@@ -19,6 +19,8 @@
 }
  **/
 
+
+
 body { 
     background-image: url("C.Gráfico/Background\ \(1\).svg");
     background-size: cover;
@@ -40,6 +42,13 @@ form {
     display: flex;
     border-radius: 5px;
     background-color: black;
+}
+
+#MiFormulario{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 form label {
