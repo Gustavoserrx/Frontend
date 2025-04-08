@@ -1,0 +1,186 @@
+/* ========== 1. Estilos globales ========== */
+body {
+    margin: 0;
+    background-image: url("Background.svg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: inria-serif, serif;
+}
+
+/* ========== 2. Título principal ========== */
+.titulo-principal {
+    font-size: 5em;
+    font-weight: bold;
+    font-family: 'inria-serif', serif;
+    color: rgb(20, 19, 19);
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-left: 6px solid transparent; /* Borde invisible */
+    padding-left: 20px;
+    display: block;
+}
+
+/* ========== 3. Barra de navegación ========== */
+/* Barra de navegación común */
+.navegacion {
+    display: flex;
+    justify-content: space-between; /* Para que el logo esté a la izquierda */
+    align-items: center;
+    background-color: black; /* Fondo negro */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 20px; /* Barra más delgada */
+    z-index: 1000; /* Para asegurarnos de que esté encima de otros elementos */
+}
+
+/* Centrar el logo a la izquierda en la barra */
+.navegacion .logo {
+    position: absolute;
+    left: -300px; /* Ajusta el valor según el espacio deseado desde la izquierda */
+    top: 50%;
+    transform: translateY(-50%); /* Centra el logo verticalmente */
+}
+
+.navegacion .logo img {
+    height: 500px; /* Ajusta el tamaño del logo según lo necesites */
+}
+
+
+/* Barra de navegación */
+.navegacion .menu {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    width: 100%; /* Ocupa todo el ancho de la barra */
+}
+
+.navegacion .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Los elementos estarán en una fila horizontal */
+    justify-content: center; /* Centra los elementos en la barra */
+}
+
+.navegacion .menu ul li {
+    margin-right: 20px; /* Espacio entre los elementos */
+}
+
+.navegacion .menu ul li a {
+    display: block;
+    text-decoration: none;
+    color: white; /* Texto blanco */
+    font-size: 18px;
+    padding: 10px 20px; /* Espaciado dentro de los recuadros */
+    border-radius: 12px; /* Bordes redondeados */
+    background-color: black; /* Fondo negro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: all 0.3s ease; /* Transición suave para efectos de hover */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de parallax en los enlaces */
+.navegacion .menu ul li a:hover {
+    background-color: #007BFF; /* Fondo azul al pasar el ratón */
+    color: white; /* Texto blanco */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+    transform: translateY(-2px); /* Efecto de elevar el recuadro */
+}
+
+/* Efecto parallax de desplazamiento */
+.navegacion .menu ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+    transform: translateX(-100%);
+    transition: all 0.5s ease;
+}
+
+.navegacion .menu ul li a:hover::before {
+    transform: translateX(0); /* El elemento se mueve de izquierda a derecha */
+}
+/* ========== 4. Carrusel ========== */
+.carrusel {
+    width: 50%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto; /* Centra el carrusel en la página */
+  }
+  
+  .carrusel-imagenes {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .imagen-contenedor {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+  }
+  
+  .imagen-contenedor img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+  }
+  
+  .descripcion {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.8);  /* Texto blanco con opacidad */
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .imagen-contenedor:hover .descripcion {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);  /* Fondo más oscuro cuando se pasa el mouse */
+    
+  }
+ /* Asegura que el contenedor tenga posición relativa */
+body {
+    position: relative;
+  }
+  
+  .seccion-boton {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 1000;
+  }
+  
+  .boton-inicio-sesion {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #6c63ff, #4a00e0);
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(76, 0, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .boton-inicio-sesion:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(76, 0, 255, 0.3);
+  }
+  
