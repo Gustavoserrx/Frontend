@@ -1,0 +1,280 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+    /*
+    .index {
+    background-image: url("C.Gráfico/Background\ \(1\).svg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    }
+    **/
+    body {
+    background-image: url(../Imagenes/Background.svg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        }
+        form {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        display: flex;
+        border-radius: 5px;
+        background-color: black;
+        }
+        form label {
+        display: block;
+        color: white;
+        margin-bottom: 5px;
+        }
+        form input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+        }
+    
+        button {
+            padding: 10px 25px;
+            border: none;
+            transition: .3s ease;
+            cursor: pointer;
+            }
+            button:hover {
+            background-color: #555;
+            cursor: pointer;
+            }
+            @media (min-width: 1024px) {
+            body {
+            font-size: 16px;
+            }
+            }
+            @media (min-width: 768px) and (max-width: 1024px) {
+            body {
+            font-size: 15px;
+            }
+            }
+            @media (min-width: 480px) and (max-width: 768px) {
+            body {
+            font-size: 14px;
+            }
+            }
+            @media (max-width: 768px) {
+            body {
+            font-size: 14px;
+            }
+            }
+    /* Barra de navegación común */
+.navegacion {
+    display: flex;
+    justify-content: space-between; /* Para que el logo esté a la izquierda */
+    align-items: center;
+    background-color: black; /* Fondo negro */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px; /* Barra más delgada */
+    z-index: 1000; /* Para asegurarnos de que esté encima de otros elementos */
+    }
+    /* Centrar el logo a la izquierda en la barra */
+    .navegacion .logo {
+    margin-left: 30px;
+    }
+    .navegacion .logo img {
+    height: 40px;
+    }
+    /* Barra de navegación */
+    .navegacion .menu {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    width: 100%; /* Ocupa todo el ancho de la barra */
+    }
+    .navegacion .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Los elementos estarán en una fila horizontal */
+    justify-content: center; /* Centra los elementos en la barra */
+    }
+
+    .navegacion .menu ul li {
+        margin-right: 20px; /* Espacio entre los elementos */
+        }
+        .navegacion .menu ul li a {
+        display: block;
+        text-decoration: none;
+        color: white; /* Texto blanco */
+        font-size: 18px;
+        padding: 10px 20px; /* Espaciado dentro de los recuadros */
+        border-radius: 12px; /* Bordes redondeados */
+        background-color: black; /* Fondo negro */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        transition: all 0.3s ease; /* Transición suave para efectos de hover */
+        position: relative;
+        overflow: hidden;
+        }
+        /* Efecto de parallax en los enlaces */
+        .navegacion .menu ul li a:hover {
+        background-color: #ff0000; /* Fondo azul al pasar el ratón */
+        color: white; /* Texto blanco */
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+        transform: translateY(-2px); /* Efecto de elevar el recuadro */
+        }
+        /* Efecto parallax de desplazamiento */
+        .navegacion .menu ul li a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2); /* Fondo semitransparente */
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
+        }
+        .navegacion .menu ul li a:hover::before {
+        transform: translateX(0); /* El elemento se mueve de izquierda a derecha */
+        }
+
+        @keyframes parallax {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+            }
+            .search-bar input {
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            width: 120px;
+            }
+            .search-bar {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            }
+            .search-bar button {
+            background-color: #ff0000;
+            border: none;
+            color: white;
+            padding: 6px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            }
+
+            .search-bar button:hover {
+                background-color: #000000;
+                input {width: 120px;}
+                }
+                body {
+                background-image: url(../Imagenes/Background.svg);
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                margin: 0;
+                font-family: 'Segoe UI', sans-serif;
+                min-height: 100vh;
+                }
+                .contenido {
+                margin-top: 140px; /* Para dejar espacio suficiente debajo de la barra fija */
+                text-align: center;
+                }
+                .titulo-principal {
+                font-size: 50px;
+                color: rgb(0, 0, 0);
+                margin-bottom: 30px; /* Separación entre el título y los cuadros */
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                }
+
+                .planes-suscripcion {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    gap: 50px; /* MÁS SEPARACIÓN entre cuadros */
+                    margin-top: 50px; /* espacio para la barra */
+                    padding: 60px 30px;
+                    }
+                    .plan {
+                    background: rgba(238, 238, 238, 0.76); /* Fondo semi-transparente más limpio */
+                    border-radius: 18px;
+                    padding: 50px;
+                    width: 400px; /* MÁS GRANDE */
+                    text-align: center;
+                    color: rgb(126, 0, 0);
+                    box-shadow: 0 10px 30px rgba(255, 251, 251, 0.4);
+                    transition: transform 0.4s ease, box-shadow 0.4s ease;
+                    backdrop-filter: blur(6px);
+                    }
+                    .plan:hover {
+                    transform: translateY(-12px) scale(1.07);
+                    box-shadow: 0 15px 35px rgba(187, 0, 0, 0.5);
+                    }
+                    .plan h2 {
+                    font-size: 32px;
+                    margin-bottom: 25px;
+                    color: #960707;
+                    }
+                    .plan .precio {
+                    font-size: 25px;
+                    margin-bottom: 20px;
+                    color: rgb(0, 69, 172);
+                    font-family: sans-serif;
+                    font-style: bold;
+                    }
+
+                    .precio {
+                        font-size: 40px;
+                        color: white;
+                        margin-bottom: 20px;
+                        }
+                        .precio .frecuencia {
+                        font-size: 18px; /* Más pequeño */
+                        color: rgb(0, 69, 172);
+                        }
+                        .plan .descripcion {
+                        font-size: 18px;
+                        margin-bottom: 35px;
+                        color: #000000;
+                        }
+                        .plan button {
+                        font-size: 20px;
+                        padding: 15px 35px;
+                        border: none;
+                        border-radius: 12px;
+                        background-color:#b30000;
+                        color: white;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                        }
+                        .plan button:hover {
+                        background-color: black;
+                        }
+
+
+                        @media (max-width: 768px) {
+                            .planes-suscripcion {
+                            flex-direction: column;
+                            align-items: center;
+                            margin-top: 180px;
+                            }
+                            }

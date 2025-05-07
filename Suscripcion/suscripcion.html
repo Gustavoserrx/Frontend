@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suscripción Escuela de Teatro</title>
+<link rel="stylesheet" href="suscripion.css">
+</head>
+<body>
+<header class="navegacion">
+<div class="logo">
+<img src="../Imagenes/logo.png" alt="Logo Escuela de Teatro">
+</div>
+<div class="menu">
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="calendario.html">Calendario</a></li>
+<li><a href="chat.html">Chat</a></li>
+</ul>
+</div>
+<div class="search-bar">
+<input type="text" placeholder="Buscar...">
+<button>Buscar</button>
+</div>
+</header>
+<main class="contenido">
+<!-- Aquí el título principal -->
+<h1 class="titulo-principal">Elige tu Plan de Suscripción</h1>
+<section class="planes-suscripcion">
+<div class="plan" id="mensual">
+<h2>Plan Mensual</h2>
+<p class="precio">
+40€ <span class="frecuencia">/mes</span>
+</p>
+<p class="descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing
+elit.
+quasi repudiandae. Neque, ipsam enim ab illum mollitia.</p>
+<button class="pago" value="mensual">Suscribirme</button>
+</div>
+<div class="plan" id="anual">
+    <h2>Plan Anual</h2>
+    <p class="precio">
+    300€ <span class="frecuencia">/año</span>
+    </p>
+    <p class="descripcion">Lorem ipsum dolor sit, amet consectetur adipisicing
+    elit.
+    quasi repudiandae. Neque, ipsam enim ab illum mollitia.</p>
+    <button class="pago" value="anual">Suscribirme</button>
+    </div>
+    </section>
+    </main>
+    <script src="https://js.stripe.com/v3/"></script>
+    
+
+    <script>
+        const stripe = Stripe("pk_test_51RGz7xRSAITdUuT7Myi2atyYUFntEHfDhMOnbholSuqdenz6oHDTxdnQwQfCsumaABjVev294wA7EQ7kb2idxWJJ00TGs8DGuP");
+        const botones = Array.from(document.getElementsByClassName("pago"));
+
+        botones.forEach((boton) => {
+            console.log(boton.value)
+            boton.addEventListener("click", () => {
+                fetch("./checkout.php", {
+                    method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                tipo: boton.value
+            })
+          })
+          .then((res) => res.json())
+          .then((data) => {
+            return stripe.redirectToCheckout({ sessionId: data.id });
+          })
+          .then((result) => {
+            if (result.error) {
+              alert(result.error.message);
+            }
+          });
+        });
+    });        
+
+
+
+      </script>
+      </body>
+    </html>

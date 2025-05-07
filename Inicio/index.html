@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio Usuario</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav class="navegacion">
+    <div class="logo">
+      <img src="../Imagenes/logo.png" alt="Logo de la página" />
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="calendario.html">Calendario</a></li>
+        <li><a href="mensajes.html">Mensajes</a></li>
+      </ul>
+    </div>
+  </nav>
+    <!-- Fin de la barra de navegación -->  
+
+  <!-- Título principal -->
+  <main>
+    <section>
+      <h1 class="titulo-principal">TEATROGEST</h1>
+    </section>
+
+    <!-- Carrusel -->
+    <div class="carrusel">
+      <div class="carrusel-imagenes">
+        <div class="imagen-contenedor">
+          <img src="../Imagenes/galeria/c1.jpg" alt="Imagen 1">
+          <div class="descripcion">Máscara de teatro bajo un fondo negro</div>
+        </div>
+        <div class="imagen-contenedor">
+          <img src="../Imagenes/galeria/c2.jpg" alt="Imagen 2">
+          <div class="descripcion">Sala de teatro con humo saliendo del escenario</div>
+        </div>
+        <div class="imagen-contenedor">
+          <img src="../Imagenes/galeria/c3.jpg" alt="Imagen 3">
+          <div class="descripcion">Sala de teatro abandonada</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Fin del carrusel -->
+
+    <section class="seccion-boton">
+    <a href="../Login/login.html" class="boton-inicio-sesion">Iniciar sesión</a>
+    </section>      
+    
+  </main>
+
+
+
+  <!-- SweetAlert2 y detección de login exitoso -->
+
+<script>
+
+  /*
+
+  He comentado este código para que funcionen los avisos de la parte de pagos. Se debería volver
+  a implementar, pero gestionando el problema de la repetición de alerts de otra manera que no
+  implique quitar los parámetros de la URL.
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("login") === "success") {
+      const name = params.get("name")
+        ? decodeURIComponent(params.get("name"))
+        : '';
+      Swal.fire({
+        title: `¡Bienvenido${name ? ", " + name : ""}!`,
+        text: "Has iniciado sesión correctamente.",
+        icon: "success",
+        confirmButtonText: "Continuar"
+      }).then(() => {
+        // quitar los parámetros de la URL para no repetir el alert
+        history.replaceState(null, "", window.location.pathname);
+      });
+    }
+  
+  
+    }); */
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pase de Lista</title>
+  <link rel="stylesheet" href="asistencia.css" />
+  <script defer src="asistencia.js"></script>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="navegacion">
+    <div class="logo">
+      <img src="../../Imagenes/logo.png" alt="Logo de la página" />
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="../inicio_profe.html">Inicio</a></li>
+        <li><a href="../Mensajes/mensajes.html">Mensajes</a></li>
+        <li><a href="../Eventos/eventos.html">Crear/Modificar Eventos</a></li>
+        <li><a href="../Clases_Asistencia/clases.html">Consultar Clases</a></li>
+        <li><a href="../Alumnos_Profesor/alumnos.html">Gestión de Alumnos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- Contenedor principal -->
+<main class="container">
+  <!-- Título -->
+  <h1 class="titulo-principal">Lista de Asistencia</h1>
+
+  <!-- Selector de grupo -->
+  <section class="selector-grupo">
+    <label for="grupo-select">Selecciona un grupo:</label>
+    <select id="grupo-select">
+      <option value="">-- Elegir grupo --</option>
+      <option value="grupo1">Grupo 1</option>
+      <option value="grupo2">Grupo 2</option>
+      <option value="grupo3">Grupo 3</option>
+    </select>
+  </section>
+
+  <form id="asistencia-form" method="POST" action="guardar_asistencia.php">
+    <!-- Aquí se cargará el grupo seleccionado con sus alumnos -->
+    <div id="grupo-contenedor"></div>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="boton-enviar">
+      <i class="fas fa-paper-plane"></i> Enviar asistencia
+    </button>
+  </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Añadir Alumno</title>
+  <link rel="stylesheet" href="barra_estilos.css">
+  <link rel="stylesheet" href="añadir_alumnos.css">
+</head>
+
+<body>
+  <nav class="navegacion">
+    <div class="logo">
+      <img src="../../Imagenes/logo.png" alt="Logo de la página" />
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="alumnos.html">← Volver a Alumnos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="form-container">
+    <h1>Añadir Nuevo Alumno</h1>
+    <form action="añadir_alumno.php" method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required>
+
+      <label for="grupo">Grupo:</label>
+      <input type="text" id="grupo" name="grupo" required>
+
+      <button type="submit">Añadir</button>
+    </form>
+  </div>
+</body>
+</html>

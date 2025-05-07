@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestión de Alumnos</title>
+  <link rel="stylesheet" href="barra_estilos.css">
+  <link rel="stylesheet" href="alumno.css">
+  <script src="alumnos.js" defer></script>
+</head>
+
+<body>
+  <nav class="navegacion">
+    <div class="logo">
+      <img src="../../Imagenes/logo.png" alt="Logo de la página" />
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="../inicio_profe.html">Inicio</a></li>
+        <li><a href="../Mensajes/mensajes.html">Mensajes</a></li>
+        <li><a href="../Eventos/eventos.html">Eventos</a></li>
+        <li><a href="../Clases_Asistencia/clases.html">Clases</a></li>
+        <li><a href="../Clases_Asistencia/asistencia.html">Asistencia</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Barra de búsqueda en la parte superior izquierda -->
+  <div class="search-container">
+    <form id="formBuscar" onsubmit="event.preventDefault(); searchStudents();">
+      <input type="text" id="searchName" placeholder="Buscar por nombre...">
+      <input type="text" id="searchGroup" placeholder="Buscar por grupo...">
+      <button type="submit">Buscar</button>
+      <button type="button" onclick="resetSearch()">Resetear</button>
+    </form>
+  </div>
+
+  <!-- Contenedor principal -->
+  <div class="main-container">
+    <!-- Listado de alumnos -->
+    <section class="listado">
+      <h1>Listado de Alumnos</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Grupo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="studentTableBody">
+          <!-- Los datos de los estudiantes aparecerán aquí -->
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- Botón para añadir alumno -->
+  <a href="añadir_alumnos.html" class="btn-add">➕ Añadir Alumno</a>
+</body>
+</html>

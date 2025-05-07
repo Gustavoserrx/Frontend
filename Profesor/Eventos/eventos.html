@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestión de Eventos - Teatro</title>
+  <link rel="stylesheet" href="barra.css" />
+  <link rel="stylesheet" href="eventos.css" />
+  <script src="eventos.js" defer></script>
+</head>
+<body>
+
+  <nav class="navegacion">
+    <div class="logo">
+      <img src="../../Imagenes/logo.png" alt="Logo de la página" />
+    </div>
+    <div class="menu">
+      <ul>
+        <li><a href="../inicio_profe.html">Inicio</a></li>
+        <li><a href="../Mensajes/mensajes.html">Mensajes</a></li>
+        <li><a href="../Clases_Asistencia/clases.html">Gestión de Clases</a></li>
+        <li><a href="../Clases_Asistencia/asistencia.html">Marcar Asistencia</a></li>
+        <li><a href="../Alumnos_Profesor/alumnos.html">Gestión de Alumnos</a></li>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="titulo-principal">Gestión de Eventos del Teatro</h1>
+
+    <div class="form-group">
+      <label for="titulo">Título del Evento</label>
+      <input type="text" id="titulo" />
+    </div>
+
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input type="date" id="fecha" />
+    </div>
+
+    <div class="form-group">
+      <label for="alumnos">Asignar Alumnos (separar por coma)</label>
+      <input type="text" id="alumnos" placeholder="Ej: Juan, María, Pedro" />
+    </div>
+
+    <button onclick="agregarEvento()">Añadir Evento</button>
+
+    <div class="event-list" id="eventList"></div>
+  </div>
+
+</body>
+</html>

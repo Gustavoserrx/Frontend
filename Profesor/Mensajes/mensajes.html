@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enviar Mensajes a Alumnos</title>
+  <link rel="stylesheet" href="mensajes.css" />
+</head>
+<body>
+    <nav class="navegacion">
+        <div class="logo">
+          <img src="../../Imagenes/logo.png" alt="Logo de la página" />
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="../inicio_profe.html">Inicio</a></li>
+            <li><a href="../Eventos/eventos.html">Crear/Modificar Eventos</a></li>
+            <li><a href="../Clases_Asistencia/clases.html">Gestión de Clases</a></li>
+            <li><a href="../Clases_Asistencia/asistencia.html">Marcar Asistencia</a></li>
+            <li><a href="../Alumnos_Profesor/alumnos.html">Gestión de Alumnos</a></li>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  <div class="container">
+    <h1>Enviar mensaje a alumno</h1>
+    <form id="messageForm">
+      <label for="name">Nombre del alumno</label>
+      <input type="text" id="name" required />
+
+      <label for="group">Grupo</label>
+      <input type="text" id="group" required />
+
+      <label for="message">Mensaje</label>
+      <textarea id="message" rows="4" required></textarea>
+
+      <button type="submit">Enviar mensaje</button>
+    </form>
+    <div class="success" id="successMsg"></div>
+  </div>
+
+  <script src="mensajes.js"></script>
+  <script>
+    // Añadir evento para cerrar el menú desplegable si se hace clic fuera de él
+    document.addEventListener("click", function(event) {
+      const dropdown = document.querySelector(".navegacion .menu ul li.dropdown");
+      const submenu = document.querySelector(".navegacion .menu ul li .submenu");
+
+      // Verifica si el clic fue fuera del menú desplegable
+      if (!dropdown.contains(event.target) && !submenu.contains(event.target)) {
+        submenu.style.opacity = '0';  // Cierra el menú si se hace clic fuera
+        submenu.style.transform = 'translateY(10px)';
+        submenu.style.pointerEvents = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

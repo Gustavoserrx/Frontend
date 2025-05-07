@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //MODIFICAR SUCCES_URL PARA QUE LLEVE PACA
+
+        const sessionId = new URLSearchParams(window.location.search).get('session_id');
+
+        function compruebaEstado(){
+            fetch(`./comprobacion_estado.php/?session_id=${sessionId}`)
+                .then((response) => response.text())
+                .then((data) => {
+                    if (data === "exito"){
+                        window.location.href = "../Inicio/index.html?pago=exitoso";
+                    } else if (data === "error" || data === "fallido"){
+                        window.location.href = "../Inicio/index.html?pago=fallido";
+                    } else{
+                        console.log(data);
+                        console.log("Procesando pago...");
+                    }
+                })
+                .catch((error) => {
+                    window.location.href = "../Inicio/index.html?pago=error_consulta";
+                });
+        }
+
+        setInterval(compruebaEstado, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagar con Stripe</title>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <h1>Compra algo</h1>
+
+  <select id="eleccion">
+    <option value="mensual">Mensual</option>
+    <option value="anual">Anual</option>
+  </select>
+
+  <button id="checkout-button">Pagar</button>
+
+  <script>
+    const stripe = Stripe("pk_test_51RGz7xRSAITdUuT7Myi2atyYUFntEHfDhMOnbholSuqdenz6oHDTxdnQwQfCsumaABjVev294wA7EQ7kb2idxWJJ00TGs8DGuP");
+
+    document.getElementById("checkout-button").addEventListener("click", () => {
+      fetch("./checkout.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            tipo: document.getElementById("eleccion").value
+        })
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        return stripe.redirectToCheckout({ sessionId: data.id });
+      })
+      .then((result) => {
+        if (result.error) {
+          alert(result.error.message);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

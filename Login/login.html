@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio Usuario</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navegacion">
+            <div class="logo">
+                <img src="../Imagenes/logo.png" alt="Logo de la página">
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="../Inicio/index.html">Inicio</a></li>
+                    <li><a href="">Calendario </a></li>
+                    <li><a href="">Mensajes</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Formulario centrado -->
+    <main id="MiFormulario">
+      <form action="../Administrador/login.php" method="post">
+      <div id="formulario"> 
+        <label for="correo">Correo Electrónico</label>
+        <input type="text" id="correo" name="email" placeholder="Escribe tu correo" required>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="Escribe tu contraseña" required>
+        <button type="submit" id="envio">Entrar</button>
+      </div>
+    </form>
+    </main>
+    
+  
+
+
+    <!-- SweetAlert2 para mostrar errores -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        if (!params.has("error")) return;
+
+        let title, text, icon = "error";
+        switch (params.get("error")) {
+          case "blocked":
+            title = "¡Bloqueado!";
+            text  = "Has fallado 3 veces. Vuelve a intentarlo en 15 minutos.";
+            icon  = "warning";
+            break;
+          case "nouser":
+            title = "¡Error!";
+            text  = "Usuario no encontrado.";
+            break;
+          case "badpass":
+            title = "¡Error!";
+            text  = "Contraseña incorrecta.";
+            break;
+          default:
+            return;
+        }
+
+        Swal.fire({
+          title: title,
+          text: text,
+          icon: icon,
+          confirmButtonText: "OK"
+        }).then(() => {
+          history.replaceState(null, "", window.location.pathname);
+        });
+      });
+    </script>
+</body>
+</html>

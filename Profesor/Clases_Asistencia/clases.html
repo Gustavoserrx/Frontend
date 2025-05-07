@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listado de Alumnado</title>
+  <link rel="stylesheet" href="../Eventos/barra.css" />
+    <link rel="stylesheet" href="clases.css" />
+</head>
+<body>
+    <nav class="navegacion">
+        <div class="logo">
+          <img src="../../Imagenes/logo.png" alt="Logo de la página" />
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="../inicio_profe.html">Inicio</a></li>
+            <li><a href="../Mensajes/mensajes.html">Mensajes</a></li>
+            <li><a href="../Eventos/eventos.html">Crear/Modificar Eventos</a></li>
+            <li><a href="../Clases_Asistencia/asistencia.html">Marcar Asistencia</a></li>
+            <li><a href="../Alumnos_Profesor/alumnos.html">Gestión de Alumnos</a></li>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Buscador de Alumnos</title>
+        <link rel="stylesheet" href="styles.css" />
+      </head>
+      <body>
+        <div class="container">
+          <h1>Buscador de Alumnado</h1>
+      
+          <div class="controls">
+            <select id="groupSelect">
+              <option value="">Selecciona un grupo</option>
+            </select>
+      
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar por nombre o apellidos..."
+              disabled
+            />
+          </div>
+      
+          <div class="results" id="groupContent"></div>
+        </div>
+      
+        <script src="script.js"></script>
+      </body>
+      </html>
+      
+  <script src="clases.js"></script>
+</body>
+</html>
