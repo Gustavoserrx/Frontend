@@ -22,14 +22,14 @@ try {
 
 // 6. Maneja sólo el evento que nos interesa
 if ($event->type === 'payment_intent.succeeded') {
-    error_log("hola buenas que tal");
-
     $paymentIntent = $event->data->object;
     $payment_intent_id = $paymentIntent->id;
     $customer_id = $paymentIntent->customer;
 
+
     $customer = \Stripe\Customer::retrieve($paymentIntent->customer);
     $email = $customer->email;
+    $nombre = $customer->name;
 
     $sessions = \Stripe\Checkout\Session::all([
         'payment_intent' => $payment_intent_id,
@@ -48,16 +48,15 @@ if ($event->type === 'payment_intent.succeeded') {
      if($conexion->connect_error){
          die("Error de conexión " . $conexion->connect_error);
      }
-
-     $query_update_id = "UPDATE usuarios SET stripe_id = ? WHERE email = ?;";
+     error_log("El nombre es: " . $nombre);
+     $query_update_id = "UPDATE usuarios SET stripe_id = ? WHERE email = ? AND CONCAT(nombre, ' ', apellido) = ?;";
      $stmt_update_id = $conexion->prepare($query_update_id);
-     $stmt_update_id->bind_param("ss", $customer_id, $email);
+     $stmt_update_id->bind_param("sss", $customer_id, $email, $nombre);
 
      try{
          $stmt_update_id->execute();
          if ($stmt_update_id->affected_rows === 0){
              $stmt_update_id->close();
-             error_log("Buenas");
              throw new Exception("Movidon");
          }
      }

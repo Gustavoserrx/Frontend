@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 07-05-2025 a las 11:08:48
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 24-04-2025 a las 14:06:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -39,8 +39,12 @@ CREATE TABLE `asistencia_curso` (
 --
 
 INSERT INTO `asistencia_curso` (`id_asistencia`, `id_curso`, `id_usuario`, `presente`) VALUES
-(13, 1, 25, 0),
-(14, 1, 26, 0);
+(1, 1, 1, 0),
+(2, 1, 2, 0),
+(3, 1, 3, 0),
+(4, 1, 4, 0),
+(5, 1, 6, 0),
+(6, 1, 7, 0);
 
 -- --------------------------------------------------------
 
@@ -60,8 +64,12 @@ CREATE TABLE `cuentas` (
 --
 
 INSERT INTO `cuentas` (`id_cuenta`, `id_usuario`, `username`, `contraseña`) VALUES
-(17, 25, 'Antonio', '$2y$10$CBlMJiOquK31dkzQjyY/N.5wX11ylFWByauxzfjK8Q9QfwE5vA6QW'),
-(18, 26, 'Paco', '$2y$10$OE8CI9NGIEyoYFBkFVxPbeqmhOnSrJ6o/Sc7qVWeGsrn3L8uww21e');
+(1, 1, 'Ana', 'anita@hotmail.com'),
+(2, 2, 'Carlos', 'carlosteatro'),
+(3, 3, 'felipe', 'felipesensei'),
+(4, 4, 'Prueba', '$2y$10$PQ0q9H5g8fKxS2EoYbTjOek3T5j/1kaGdZC1dE7uX9MocpL5KWJv6'),
+(6, 6, 'Prueba2', '$2y$12$5anmNIbuUPRevyTcEQwh2.TPdYwbmjtadaA9FaiS/l9P7hmnbO4ci'),
+(7, 7, 'Nuevo', '$2b$12$JHU5rfObW2QX.w2u9Q7JE.VUw2/.bzFlD9F2wZl6V0h5zXACYoebm');
 
 -- --------------------------------------------------------
 
@@ -116,10 +124,7 @@ INSERT INTO `login_attempts` (`id`, `email`, `attempt_time`) VALUES
 (12, 'prueba@ejemplo.com', '2025-04-24 13:05:49'),
 (13, 'prueba@ejemplo.com', '2025-04-24 13:39:17'),
 (14, 'prueba@ejemplo.com', '2025-04-24 13:40:41'),
-(15, 'felipe@example.com', '2025-04-24 13:40:50'),
-(16, 'sisia@gmail.com', '2025-04-29 11:12:51'),
-(17, 'sisia@gmail.com', '2025-04-29 11:12:58'),
-(18, 'sisia@gmail.com', '2025-04-29 11:13:10');
+(15, 'felipe@example.com', '2025-04-24 13:40:50');
 
 -- --------------------------------------------------------
 
@@ -141,27 +146,12 @@ CREATE TABLE `pagos` (
 --
 
 INSERT INTO `pagos` (`id_pago`, `id_alumno`, `modalidad_pago`, `precio`, `fecha_pago`, `estado_pago`) VALUES
-(16, 25, NULL, 0.00, NULL, 'pendiente'),
-(17, 26, NULL, 0.00, NULL, 'pendiente');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `pagos_stripe`
---
-
-CREATE TABLE `pagos_stripe` (
-  `session_id` varchar(255) NOT NULL,
-  `estado` varchar(30) NOT NULL,
-  `payment_intent_id` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `pagos_stripe`
---
-
-INSERT INTO `pagos_stripe` (`session_id`, `estado`, `payment_intent_id`) VALUES
-('cs_test_a14JD9RkE8LNR9FYm6X0QPaKC6mn1DwmCK8Xs8KLCp1qyHlXFGQlmT4nhQ', 'exito', 'pi_3RM2f3RSAITdUuT7116hOB2b');
+(1, 1, NULL, 0.00, NULL, 'pendiente'),
+(2, 2, NULL, 0.00, NULL, 'pendiente'),
+(3, 3, NULL, 0.00, NULL, 'pendiente'),
+(4, 4, NULL, 0.00, NULL, 'pendiente'),
+(5, 6, NULL, 0.00, NULL, 'pendiente'),
+(6, 7, NULL, 0.00, NULL, 'pendiente');
 
 -- --------------------------------------------------------
 
@@ -176,26 +166,27 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `contraseña` varchar(255) NOT NULL,
   `rol` enum('alumno','profesor','administrador') NOT NULL,
-  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
-  `pago_inicial` bit(1) DEFAULT b'0',
-  `Grupo` tinyint(4) DEFAULT NULL,
-  `stripe_id` varchar(70) DEFAULT NULL
+  `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `email`, `contraseña`, `rol`, `fecha_creacion`, `pago_inicial`, `Grupo`, `stripe_id`) VALUES
-(25, 'Antonio', 'Prueba Uno', 'antonio@gmail.com', '$2y$10$CBlMJiOquK31dkzQjyY/N.5wX11ylFWByauxzfjK8Q9QfwE5vA6QW', 'alumno', '2025-05-07 07:16:02', b'0', 4, 'cus_SGZOUwkwSktRgP'),
-(26, 'Paco', 'Prueba Usuario', 'pacoprueba@gmail.com', '$2y$10$OE8CI9NGIEyoYFBkFVxPbeqmhOnSrJ6o/Sc7qVWeGsrn3L8uww21e', 'alumno', '2025-05-07 07:42:02', b'0', 5, 'cus_SGZoTbNqyVd1mV');
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `email`, `contraseña`, `rol`, `fecha_creacion`) VALUES
+(1, 'Ana', 'Martinez', 'ana@example.com', 'anita@hotmail.com', 'administrador', '2025-04-03 12:59:47'),
+(2, 'Carlos', 'Garcia', 'carlos@example.com', 'carlosteatro', 'profesor', '2025-04-03 12:59:47'),
+(3, 'felipe', 'Fernandez', 'felipe@example.com', 'felipesensei', 'alumno', '2025-04-03 12:59:47'),
+(4, 'Prueba', 'Usuario', 'prueba@ejemplo.com', '$2y$10$PQ0q9H5g8fKxS2EoYbTjOek3T5j/1kaGdZC1dE7uX9MocpL5KWJv6', 'alumno', '2025-04-24 10:59:37'),
+(6, 'Prueba2', 'Usuario', 'prueba2@ejemplo.com', '$2y$12$5anmNIbuUPRevyTcEQwh2.TPdYwbmjtadaA9FaiS/l9P7hmnbO4ci', 'administrador', '2025-04-24 11:03:15'),
+(7, 'Nuevo', 'Usuario2', 'usuario2@ejemplo.com', '$2b$12$JHU5rfObW2QX.w2u9Q7JE.VUw2/.bzFlD9F2wZl6V0h5zXACYoebm', 'alumno', '2025-04-24 11:42:50');
 
 --
 -- Disparadores `usuarios`
 --
 DELIMITER $$
 CREATE TRIGGER `after_usuario_insert` AFTER INSERT ON `usuarios` FOR EACH ROW BEGIN
-    INSERT INTO cuentas (id_usuario, username, contraseña)
+    INSERT INTO CUENTAS (id_usuario, username, contraseña)
     VALUES (NEW.id_usuario, NEW.nombre, NEW.contraseña);
 END
 $$
@@ -203,14 +194,14 @@ DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `after_usuario_insert_asistencia` AFTER INSERT ON `usuarios` FOR EACH ROW BEGIN
     -- Supongamos que se asocia inicialmente a un curso por defecto (ej. id_curso = 1)
-    INSERT INTO asistencia_curso (id_curso, id_usuario, presente)
+    INSERT INTO ASISTENCIA_CURSO (id_curso, id_usuario, presente)
     VALUES (1, NEW.id_usuario, FALSE);
 END
 $$
 DELIMITER ;
 DELIMITER $$
 CREATE TRIGGER `after_usuario_insert_pago` AFTER INSERT ON `usuarios` FOR EACH ROW BEGIN
-    INSERT INTO pagos (id_alumno, modalidad_pago, precio, fecha_pago, estado_pago)
+    INSERT INTO PAGOS (id_alumno, modalidad_pago, precio, fecha_pago, estado_pago)
     VALUES (NEW.id_usuario, NULL, 0, NULL, 'pendiente');
 END
 $$
@@ -233,6 +224,7 @@ ALTER TABLE `asistencia_curso`
 --
 ALTER TABLE `cuentas`
   ADD PRIMARY KEY (`id_cuenta`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD KEY `cuentas_ibfk_1` (`id_usuario`);
 
 --
@@ -257,19 +249,11 @@ ALTER TABLE `pagos`
   ADD KEY `fk_pagos_alumno` (`id_alumno`);
 
 --
--- Indices de la tabla `pagos_stripe`
---
-ALTER TABLE `pagos_stripe`
-  ADD PRIMARY KEY (`session_id`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `nombre_apellido_unico` (`nombre`,`apellido`),
-  ADD UNIQUE KEY `stripe_id` (`stripe_id`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -279,13 +263,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `asistencia_curso`
 --
 ALTER TABLE `asistencia_curso`
-  MODIFY `id_asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `cuentas`
 --
 ALTER TABLE `cuentas`
-  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_cuenta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `curso`
@@ -297,19 +281,19 @@ ALTER TABLE `curso`
 -- AUTO_INCREMENT de la tabla `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_pago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
